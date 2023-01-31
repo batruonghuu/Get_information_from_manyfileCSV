@@ -23,7 +23,7 @@ active_sheet = new_file_excel.sheets.active
 # Get active sheet of Excel file
 n = 2
 def search_data_in_csv(filecsv_need_check):
-    term = "Model"
+    term = "SMBIOS"
     # Define the term which need to be search
     reader = csv.reader(open(filecsv_need_check,'r'))
     list_check = list(reader)
