@@ -32,10 +32,15 @@ def search_data_in_csv(filecsv_need_check):
         # Check row include term
             active_sheet.range("B" + str(n)).value = list_check[i+1]
             active_sheet.range("A" + str(n)).value = filecsv_need_check
+            if list_check[i+2] != []:
+                active_sheet.range("B" + str(n+1)).value = list_check[i+2]
+                active_sheet.range("A" + str(n+1)).value = filecsv_need_check
             print(list_check[i+1])
+            print(list_check[i+2])
             break
 for name_file in list_of_file:
     path = os.path.join(active_folder_name, name_file)
     # Define the path
     search_data_in_csv(path)
-    n = n + 1
+    last_row = active_sheet.api.UsedRange.Row + active_sheet.api.UsedRange.Rows.Count - 1
+    n = last_row + 1
